@@ -27,5 +27,4 @@ echo "what is the response? (if you type an incorrect password what does it resp
 read response
 echo "Done! thanks for using easyhydra, hit enter to execute the command."
 
-
-echo hydra -l $username -P $directory $site http-post-form "$extlink:username=^USER^&password=^PASS^:F=$response" -V
+hydra -l $username -P $directory $site http-post-form "$extlink:username=^USER^&password=^PASS^:F=$response" -V
