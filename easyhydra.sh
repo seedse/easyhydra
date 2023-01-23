@@ -21,4 +21,4 @@ read response
 echo "Done! thanks for using easyhydra, hit enter to execute the command."
 read ext
 
-hydra -l $username -P $directory $site http-post-form "$extlink:username=^USER^&password=^PASS^:F=$response" -V
+echo "hydra -l $username -P $directory $site http-post-form \"$extlink:username=^USER^&password=^PASS^:F=$response\" -V"
