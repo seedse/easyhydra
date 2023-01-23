@@ -18,7 +18,15 @@ echo "what is the login extention (site.com has the login page /login, so you wo
 read extlink
 echo "what is the response? (if you type an incorrect password what does it respond with? like Incorrect Password!"
 read response
-echo "Done! thanks for using easyhydra, hit enter to execute the command."
+echo "Done! thanks for using easyhydra, type 1 to print the command, or type 2 to execute it"
 read ext
 
+if [ $ext -eq 1 ]
+then
 echo "hydra -l $username -P $directory $site http-post-form \"$extlink:username=^USER^&password=^PASS^:F=$response\" -V"
+fi
+
+if [ $ext -eq 2 ]
+then
+hydra -l $username -P $directory $site http-post-form "$extlink:username=^USER^&password=^PASS^:F=$response" -V
+fi
